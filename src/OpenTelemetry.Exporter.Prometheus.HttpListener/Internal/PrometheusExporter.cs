@@ -10,7 +10,7 @@ namespace OpenTelemetry.Exporter.Prometheus;
 /// Exporter of OpenTelemetry metrics to Prometheus.
 /// </summary>
 [ExportModes(ExportModes.Pull)]
-internal sealed class PrometheusExporter : BaseExporter<Metric>, IPullMetricExporter
+public sealed class PrometheusExporter : BaseExporter<Metric>, IPullMetricExporter
 {
     private Func<int, bool> funcCollect;
     private Func<Batch<Metric>, ExportResult> funcExport;
@@ -20,7 +20,7 @@ internal sealed class PrometheusExporter : BaseExporter<Metric>, IPullMetricExpo
     /// Initializes a new instance of the <see cref="PrometheusExporter"/> class.
     /// </summary>
     /// <param name="options"><see cref="PrometheusExporterOptions"/>.</param>
-    public PrometheusExporter(PrometheusExporterOptions options)
+    internal PrometheusExporter(PrometheusExporterOptions options)
     {
         Guard.ThrowIfNull(options);
 

@@ -13,7 +13,7 @@ namespace OpenTelemetry.Exporter;
 /// <summary>
 /// ASP.NET Core middleware for exposing a Prometheus metrics scraping endpoint.
 /// </summary>
-internal sealed class PrometheusExporterMiddleware
+public sealed class PrometheusExporterMiddleware
 {
     private readonly PrometheusExporter exporter;
 
@@ -34,7 +34,11 @@ internal sealed class PrometheusExporterMiddleware
         this.exporter = exporter;
     }
 
-    internal PrometheusExporterMiddleware(PrometheusExporter exporter)
+    /// <summary>
+    /// Initializes a new instance of the <see cref="PrometheusExporterMiddleware"/> class.
+    /// </summary>
+    /// <param name="exporter">Exporter of OpenTelemetry metrics to Prometheus.</param>
+    public PrometheusExporterMiddleware(PrometheusExporter exporter)
     {
         this.exporter = exporter;
     }
